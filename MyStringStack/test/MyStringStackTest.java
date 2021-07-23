@@ -20,16 +20,20 @@ public class MyStringStackTest {
 	
 	@Test
 	public void testPush(){
-		//Empty stack is still empty after pushing a null element 
+		//Empty stack is still empty after pushing a null element (TC#3)
 		assertTrue(stack.isEmpty());
 		String o1 = null;
 		stack.push(o1);
 		assertTrue(stack.isEmpty());
 		
-		//New stack is empty, after pushing an s1 element, stack is no longer empty
+		//New stack is empty, after pushing an s1 element, stack is no longer empty (TC#1)
 		assertTrue(stack.isEmpty());
 		stack.push(s1);
 		assertFalse(stack.isEmpty());	
+		
+		// TC#2
+		String s2 = stack.pop();
+		assertSame("The two elements should be the same", s2, s1);
 	}
 	
 	@Test
